@@ -1,0 +1,14 @@
+server:
+  port: 8081
+
+# ˝æ›ø‚≈‰÷√
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/a_book?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+
+# mybatis≈‰÷√
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+
