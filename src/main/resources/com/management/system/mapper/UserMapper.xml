@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.management.system.mapper.UserMapper">
+
+    <resultMap id="user" type="com.management.system.entity.User">
+        <result property="id" column="id"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="realname" column="realname" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="sex" column="sex" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="regsterTime" column="regster_time" jdbcType="DATE"/>
+    </resultMap>
+
+
+    <select id="findByUserName" resultMap="user">
+        select * from t_user where username = #{username}
+    </select>
+</mapper>
