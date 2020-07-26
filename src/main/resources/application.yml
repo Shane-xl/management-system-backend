@@ -15,7 +15,7 @@ spring:
 #mybatis配置
 mybatis:
   mapperLocations: classpath:com/management/system/mapper/*.xml
-  type-aliases-package: com.management.system.entity
+  type-aliases-package: com.management.system.domain.entity
   configuration:
     map-underscore-to-camel-case: true
 

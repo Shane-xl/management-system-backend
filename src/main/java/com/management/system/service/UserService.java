@@ -1,6 +1,7 @@
 package com.management.system.service;
 
-import com.management.system.entity.User;
+import com.management.system.domain.dto.UserDto;
+import com.management.system.domain.entity.User;
 import com.management.system.utils.response.ApiResponse;
 
 /**
@@ -10,8 +11,9 @@ import com.management.system.utils.response.ApiResponse;
 public interface UserService {
     /**
      * 登录
-     * @param username
+     *
+     * @param userDto
      * @return
      */
-    ApiResponse<User> login(String username,String password);
+    ApiResponse<User> login(UserDto userDto);
 }

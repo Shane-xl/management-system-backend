@@ -22,11 +22,17 @@ import java.io.Serializable;
 public class ApiResponse<T> implements Serializable {
 
 
-    /**响应编码：0成功；-1系统异常；*/
+    /**
+     * 响应编码：0成功；-1系统异常；
+     */
     private int code;
-    /**响应结果描述*/
+    /**
+     * 响应结果描述
+     */
     private String message;
-    /**业务数据*/
+    /**
+     * 业务数据
+     */
     private T data;
 
 
@@ -47,6 +53,7 @@ public class ApiResponse<T> implements Serializable {
 
     /**
      * 带业务数据的成功响应
+     *
      * @param data
      * @param <T>
      * @return
@@ -70,6 +77,7 @@ public class ApiResponse<T> implements Serializable {
 
     /**
      * 响应失败
+     *
      * @return
      */
     public static ApiResponse fail() {
@@ -79,6 +87,7 @@ public class ApiResponse<T> implements Serializable {
 
     /**
      * 响应失败
+     *
      * @param responseCode
      * @return
      */
@@ -88,6 +97,7 @@ public class ApiResponse<T> implements Serializable {
 
     /**
      * 响应失败
+     *
      * @param failCode
      * @param msg
      * @return
@@ -105,6 +115,7 @@ public class ApiResponse<T> implements Serializable {
 
     /**
      * 响应失败
+     *
      * @param failCode
      * @param msg
      * @return
@@ -119,14 +130,14 @@ public class ApiResponse<T> implements Serializable {
         return response;
     }
 
-    private static Integer getResponseStatus(int failCode){
-        if(failCode ==ReturnCode.FAIL.getCode() || failCode ==ReturnCode.SYSTEM_ERROR.getCode()){
+    private static Integer getResponseStatus(int failCode) {
+        if (failCode == ReturnCode.FAIL.getCode() || failCode == ReturnCode.SYSTEM_ERROR.getCode()) {
             return HttpStatus.INTERNAL_SERVER_ERROR.value();
-        }else if(failCode == ReturnCode.PARAMS_ERROR.getCode()){
+        } else if (failCode == ReturnCode.PARAMS_ERROR.getCode()) {
             return HttpStatus.BAD_REQUEST.value();
-        }else if(failCode == ReturnCode.SIGN_ERROR.getCode()){
+        } else if (failCode == ReturnCode.SIGN_ERROR.getCode()) {
             return HttpStatus.UNAUTHORIZED.value();
-        }else {
+        } else {
             return HttpStatus.OK.value();
         }
     }

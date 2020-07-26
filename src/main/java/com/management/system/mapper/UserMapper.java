@@ -1,6 +1,6 @@
 package com.management.system.mapper;
 
-import com.management.system.entity.User;
+import com.management.system.domain.entity.User;
 
 /**
  * @author：xiexiaolong.
@@ -9,6 +9,7 @@ import com.management.system.entity.User;
 public interface UserMapper {
     /**
      * 根据用户名查找用户是否存在
+     *
      * @param username
      * @return
      */

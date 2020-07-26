@@ -1,4 +1,4 @@
-package com.management.system.entity;
+package com.management.system.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,6 +1,7 @@
 package com.management.system.service.impl;
 
-import com.management.system.entity.User;
+import com.management.system.domain.dto.UserDto;
+import com.management.system.domain.entity.User;
 import com.management.system.mapper.UserMapper;
 import com.management.system.service.UserService;
 import com.management.system.utils.response.ApiResponse;
@@ -18,12 +19,12 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public ApiResponse<User> login(String username,String password) {
-        User user = userMapper.findByUserName(username);
+    public ApiResponse<User> login(UserDto userDto) {
+        User user = userMapper.findByUserName(userDto.getUsername());
         if (ObjectUtils.isEmpty(user)) {
             return ApiResponse.fail(201, "用户不存在");
         } else {
-            if (user.getPassword().equals(password)) {
+            if (user.getPassword().equals(userDto.getPassword())) {
                 return ApiResponse.success(user);
             } else {
                 return ApiResponse.fail(202, "密码输入错误");
