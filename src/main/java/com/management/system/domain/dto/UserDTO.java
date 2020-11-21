@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 @Setter
 @Getter
-public class UserDto implements Serializable {
+public class UserDTO implements Serializable {
     private String username;
     private String password;
 }

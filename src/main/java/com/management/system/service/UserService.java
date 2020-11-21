@@ -1,7 +1,6 @@
 package com.management.system.service;
 
-import com.management.system.domain.dto.UserDto;
-import com.management.system.domain.entity.User;
+import com.management.system.domain.dto.UserDTO;
 import com.management.system.utils.response.ApiResponse;
 
 /**
@@ -15,5 +14,5 @@ public interface UserService {
      * @param userDto
      * @return
      */
-    ApiResponse<User> login(UserDto userDto);
+    ApiResponse login(UserDTO userDto);
 }

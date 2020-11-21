@@ -1,7 +1,6 @@
 package com.management.system.controller;
 
-import com.management.system.domain.dto.UserDto;
-import com.management.system.domain.entity.User;
+import com.management.system.domain.dto.UserDTO;
 import com.management.system.service.UserService;
 import com.management.system.utils.response.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/login")
-    public ApiResponse<User> login(@RequestBody UserDto userDto) {
+    public ApiResponse login(@RequestBody(required = false) UserDTO userDto) {
         return userService.login(userDto);
     }
 }

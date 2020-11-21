@@ -1,5 +1,6 @@
 package com.management.system.utils.response;
 
+import com.management.system.utils.response.enums.ReturnCode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

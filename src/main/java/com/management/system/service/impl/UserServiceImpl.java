@@ -1,10 +1,11 @@
 package com.management.system.service.impl;
 
-import com.management.system.domain.dto.UserDto;
+import com.management.system.domain.dto.UserDTO;
 import com.management.system.domain.entity.User;
 import com.management.system.mapper.UserMapper;
 import com.management.system.service.UserService;
 import com.management.system.utils.response.ApiResponse;
+import com.management.system.utils.response.enums.ReturnCode;
 import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,15 +20,18 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public ApiResponse<User> login(UserDto userDto) {
+    public ApiResponse login(UserDTO userDto) {
+        if (userDto == null) {
+            return ApiResponse.fail(ReturnCode.PARAMS_ERROR);
+        }
         User user = userMapper.findByUserName(userDto.getUsername());
         if (ObjectUtils.isEmpty(user)) {
-            return ApiResponse.fail(201, "用户不存在");
+            return ApiResponse.fail(ReturnCode.USER_IS_NOT);
         } else {
             if (user.getPassword().equals(userDto.getPassword())) {
                 return ApiResponse.success(user);
             } else {
-                return ApiResponse.fail(202, "密码输入错误");
+                return ApiResponse.fail(ReturnCode.PASSWORD_ERROR);
             }
         }
     }
