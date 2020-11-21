@@ -23,7 +23,7 @@ public class ApiResponse<T> implements Serializable {
 
 
     /**
-     * 响应编码：0成功；-1系统异常；
+     * 响应编码
      */
     private int code;
     /**
@@ -44,13 +44,6 @@ public class ApiResponse<T> implements Serializable {
         return success(null);
     }
 
-    public static ApiResponse success200Code() {
-        ApiResponse response = new ApiResponse();
-        response.setCode(ReturnCode.SUCCESS200.getCode());
-        response.setMessage(ReturnCode.SUCCESS200.getMsg());
-        return response;
-    }
-
     /**
      * 带业务数据的成功响应
      *
@@ -65,15 +58,6 @@ public class ApiResponse<T> implements Serializable {
         response.setData(data);
         return response;
     }
-
-    public static <T> ApiResponse success200Code(T data) {
-        ApiResponse response = new ApiResponse();
-        response.setCode(ReturnCode.SUCCESS200.getCode());
-        response.setMessage(ReturnCode.SUCCESS200.getMsg());
-        response.setData(data);
-        return response;
-    }
-
 
     /**
      * 响应失败
